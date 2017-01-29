@@ -24,3 +24,26 @@ $text-white: #d6d3d5;
     font-weight: bold;
   }
 }
+
+$clock-size: 14rem;
+$clock-background-color: #4d55e7;
+$clock-border-color: #2d3474;
+$clock-text-color: white;
+
+.clock {
+  height: $clock-size;
+  width:  $clock-size;
+  background-color: $clock-background-color;
+  border: 2px solid $clock-border-color;
+  border-radius: 50%;
+  position: relative;
+  left: 45%;
+}
+
+.clock-text {
+  font-size: 2.25rem;
+  font-color: $clock-text-color;
+  text-align: center;
+  position: relative;
+  top: 37%;
+}

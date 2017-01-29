@@ -1,8 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Clock = require('Clock');
-var TestUtils = require('react-addons-test-utils');
 var expect = require('expect');
+//var $ = require('jQuery');
+var TestUtils = require('react-addons-test-utils');
+var Clock = require('Clock');
 
 describe('Test Clock component', () => {
     it('Existing test', () => {
@@ -25,5 +26,24 @@ describe('Test Clock component', () => {
 
             expect(component.formatTime(seconds_count)).toBe(expected)
         })
-    })
+    });
+
+    // describe('#render', () => {
+    //     it('Should has default props', () => {
+    //         var expected = '00:00';
+    //         var component = TestUtils.renderIntoDocument(<Clock/>);
+    //         var clockText= $(ReactDOM.findDOMNode(component)).find('.clock-text').text();
+    //
+    //         expect(clockText).toBe(expected);
+    //     });
+    //
+    //     it('Should render right ', () => {
+    //         var secondsCount = 77;
+    //         var expected = '01:17';
+    //         var component = TestUtils.renderIntoDocument(<Clock secondsCount={secondsCount}/>);
+    //         var clockText= $(ReactDOM.findDOMNode(component)).find('.clock-text').text();
+    //
+    //         expect(clockText).toBe(expected);
+    //    });
+    // });
 })
