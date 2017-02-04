@@ -2,21 +2,28 @@ var React = require('react');
 var Clock = require('Clock');
 var TimeEntryForm = require('TimeEntryForm');
 
+var Controls = require('Controls');
+
 var Countdown = React.createClass({
     getInitialState: function(){
         return(
             {
                 secondsCount: 0,
-                status: 'stopped'
+                countdownStatus: 'cancelled'
             }
         )
     },
     componentDidUpdate: function(prevProps, prevState) {
-        if (this.state.status != prevState.status) {
-            switch(this.state.status) {
+        if (this.state.countdownStatus != prevState.countdownStatus) {
+            switch(this.state.countdownStatus) {
                 case 'started':
-                     this.startTimer();
-                     break;
+                    this.startTimer();
+                    break;
+                case 'cancelled':
+                    this.setState({ secondsCount: 0 })
+                case 'paused':
+                    clearInterval(this.timer);
+                    this.timer = undefined;
             }
         }
     },
@@ -27,19 +34,37 @@ var Countdown = React.createClass({
             object.setState({
                 secondsCount: newSeconds >= 0 ? newSeconds : 0
             })
+
+            if(newSeconds === 0) {
+                object.setState({ countdownStatus: 'cancelled' })
+            }
         }, 1000)
     },
     setSecondsCount: function(count) {
         this.setState({
             secondsCount: count,
-            status: 'started'
+            countdownStatus: 'started'
         });
     },
+    changeStatus: function(state) {
+        this.setState({
+            countdownStatus: state
+        })
+    },
     render: function() {
+        var { secondsCount, countdownStatus } = this.state;
+        var renderControls = () => {
+            if(countdownStatus != 'cancelled') {
+                return <Controls onStateChange={this.changeStatus} state={countdownStatus}/>
+            } else {
+                return <TimeEntryForm setSecondsCount={this.setSecondsCount}/>
+            }
+        }
+
         return (
             <div>
-                <Clock secondsCount={this.state.secondsCount}/>
-                <TimeEntryForm setSecondsCount={this.setSecondsCount}/>
+                <Clock secondsCount={secondsCount}/>
+                { renderControls() }
             </div>
         )
     }

@@ -3,12 +3,57 @@ var ReactDOM = require('react-dom');
 var expect = require('expect');
 var $ = require('jQuery');
 var TestUtils = require('react-addons-test-utils');
+
 var Clock = require('Clock');
 
 describe('Test Clock component', () => {
     it('Existing test', () => {
         expect(Clock).toExist();
-    });
+    });var React = require('react');
+var React = require('react');
+
+var Controls = React.createClass({
+    propTypes: function() {
+        state: React.PropTypes.string.isRequired()
+    },
+    render: function() {
+        var { state } = this.props;
+        if (state == 'started') {
+            var controlButton = <button className="button alert">Stop</button>
+        } else if ( state == 'paused') {
+            var controlButton = <button className="button success">Start</button>
+        }
+
+        return (
+            <div class="controls">
+                { controlButton }
+                <button className="button secondary">Cancel</button>
+            </div>
+        )
+    }
+});
+
+var Controls = React.createClass({
+    propTypes: function() {
+        state: React.PropTypes.string.isRequired()
+    },
+    render: function() {
+        var { state } = this.props;
+        if (state == 'started') {
+            var controlButton = <button className="button alert">Stop</button>
+        } else if ( state == 'paused') {
+            var controlButton = <button className="button success">Start</button>
+        }
+
+        return (
+            <div class="controls">
+                { controlButton }
+                <button className="button secondary">Cancel</button>
+            </div>
+        )
+    }
+});
+
 
     describe('#formatTime', () => {
         it('test large time amount', () => {

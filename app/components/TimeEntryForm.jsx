@@ -13,7 +13,7 @@ var TimeEntryForm = React.createClass({
         }
     },
     render: function(){
-        return( <div class="row">
+        return( <div className="row">
             <form ref="form" className="time-entry-form" onSubmit={this.onFormSubmit}>
                 <input ref="seconds" type="text" className="time-entry-form__input"/>
                 <input type="submit" value="Ок" className="button expanded"/>

@@ -45,3 +45,16 @@ $clock-text-color: white;
   position: relative;
   top: 37%;
 }
+
+.controls {
+  display: flex;
+  justify-content: center;
+
+  .button {
+    padding: .76rem 3rem;
+  }
+
+  .button:first-child {
+    margin-right: 3rem;
+  }
+}
