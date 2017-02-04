@@ -22,12 +22,14 @@ module.exports = {
     resolve: {
         root: __dirname,
         alias: {
+            jQuery: 'node_modules/jquery/dist/jquery.js',
             Main: 'app/components/Main.jsx',
             applicationStyles: 'app/styles/app.scss',
             Navigation: 'app/components/Navigation.jsx',
             Countdown: 'app/components/Countdown.jsx',
             Timer: 'app/components/Timer.jsx',
-            Clock: 'app/components/Clock.jsx'
+            Clock: 'app/components/Clock.jsx',
+            TimeEntryForm: 'app/components/TimeEntryForm.jsx'
         },
         extensions: ['', '.js', '.jsx']
     },
@@ -36,7 +38,7 @@ module.exports = {
             {
                 loader: 'babel-loader',
                 query: {
-                    presets: ['react', 'es2016', 'stage-0']
+                    presets: ['react', 'es2015', 'stage-0']
                 },
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
@@ -44,4 +46,4 @@ module.exports = {
         ]
     },
     devtool: 'cheap-module-eval-source-map'
-}
+};

@@ -25,7 +25,7 @@ var Clock = React.createClass({
     },
     render: function(){
       return (
-        <div className="clock">
+        <div className="clock row">
             <div className="clock-text">
                 {this.formatTime(this.props.secondsCount)}
             </div>

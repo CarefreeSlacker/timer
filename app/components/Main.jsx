@@ -4,14 +4,12 @@ var Navigation = require('Navigation');
 var Main = (props) => {
     return (
         <div>
-            <div>
-                <Navigation/>
-                <div>
-                    <p>Main.jsx Rendered</p>
+            <Navigation/>
+            <div className="row">
+                <div className="small-2 small-offset-5">
                     { props.children }
                 </div>
             </div>
-
         </div>
     )
 }
