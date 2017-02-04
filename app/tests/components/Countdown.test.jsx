@@ -31,8 +31,33 @@ describe('Test Countdown component', () => {
 
             setTimeout(() => {
                 expect(component.state.secondsCount).toBe(0);
+                expect(component.state.countdownStatus).toBe('cancelled');
                 done();
             }, 3001);
-        })
+        });
+
+        it('Should pause contdown', (done) => {
+            var component = TestUtils.renderIntoDocument(<Countdown/>);
+            component.setSecondsCount(3);
+            component.changeStatus('paused');
+
+            setTimeout(() => {
+                expect(component.state.secondsCount).toBe(3);
+                expect(component.state.countdownStatus).toBe('paused');
+                done();
+            }, 2001);
+        });
+
+        it('Should cancel contdown', (done) => {
+            var component = TestUtils.renderIntoDocument(<Countdown/>);
+            component.setSecondsCount(10);
+            component.changeStatus('cancelled');
+
+            setTimeout(() => {
+                expect(component.state.secondsCount).toBe(0);
+                expect(component.state.countdownStatus).toBe('cancelled');
+                done();
+            }, 2001);
+        });
     });
 })

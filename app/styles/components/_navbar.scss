@@ -1,0 +1,26 @@
+$special-black: #2C2C2C;
+$text-white: #d6d3d5;
+
+.top-bar {
+  background-color: $special-black;
+
+  .top-bar-left {
+    display: inline-block;
+  }
+
+  .top-bar-right {
+    display: inline-block;
+  }
+
+  .menu {
+    background-color: $special-black;
+  }
+
+  .menu-text span {
+    color: $text-white;
+  }
+
+  .active-link {
+    font-weight: bold;
+  }
+}
